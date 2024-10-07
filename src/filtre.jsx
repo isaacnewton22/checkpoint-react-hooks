@@ -2,7 +2,7 @@ import React from 'react'
 
 function Filtre({setCritere}) {
     return (
-        <div className="d-flex justify-content-around mb-4">
+        <div className="d-flex justify-content-around mb-4 m-5">
             <input
                 type="number"
                 placeholder="Filter by rating"

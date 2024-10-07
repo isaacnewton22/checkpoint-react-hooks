@@ -1,31 +1,15 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Movies } from './Movies'
-import MovieList from './MovieList'
-import Filtre from './filtre'
+import {Routes, Route, Navigate} from 'react-router-dom';
+import MoviePage from './MoviePage';
+import Description from './description'
 function App() {
-const [movies, setMovies] = useState([])
-const [critere, setCritere] = useState(0)
-let valeursTries = []
-
-useEffect(() => {
-    setMovies(Movies)
-} , [])
-
-useEffect(() => {
-  console.log(critere)
-  valeursTries = movies.filter(movie => movie.note == critere)
-} , [critere])
-
-
-
   return (
-    <>
-        <Filtre setCritere= {setCritere} />
-        <MovieList Movies={movies.filter(movie => movie.note == critere)} />
-    </>
+    <div className='w-screen min-h-screen ' >
+          <Routes>
+            <Route path="/" exact element={<Navigate to='/movies' />} />
+            <Route path="/movies" element={<MoviePage/>} />
+            <Route path="/movies/:name" element={<Description/>} />
+          </Routes>
+    </div>
   )
 }
 
